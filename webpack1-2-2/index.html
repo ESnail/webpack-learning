@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>webpack1 2-1</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </head>
 <body>
-    <script src="bundle.js"></script>
+	<dl>
+		<dt>now:</dt>
+		<dd><%= htmlWebpackPlugin.options.date %></dd>
+	</dl>
+
+	<!-- 遍历 -->
+	<label>遍历 htmlWebpackPlugin</label>
+	<% for(var key in htmlWebpackPlugin) { %>
+		<%= key %>: 
+		<%= JSON.stringify(htmlWebpackPlugin[key]) %>
+	<% } %>
+
+	<label>遍历 htmlWebpackPlugin.files</label>
+	<% for(var key in htmlWebpackPlugin.files) { %>
+		<%= key %>: 
+		<%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+	<% } %>
+
+	<label>遍历 htmlWebpackPlugin.options</label>
+	<% for(var key in htmlWebpackPlugin.options) { %>
+		<%= key %>: 
+		<%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
+	<% } %>
+
+	<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.a.entry %>"></script>
 </body>
 </html>

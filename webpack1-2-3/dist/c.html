@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is the c page</title>
+    <!-- 默认entry带 publicPath地址 htmlWebpackPlugin.files.chunks.main.entry -->
+    http://cdn.com/js/main-4d84e8a1dcfe9230c8d3.js
+    <!--   嵌入部分初始化的js代码,要去除publicPath地址 htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length) -->
+    js/main-4d84e8a1dcfe9230c8d3.js
+	
+	<!-- js嵌入html需要用到webpack的内部方法compilation.asserts['去除publicPath的js路径'].source() -->
+    <script type="text/javascript" src="/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "http://cdn.com/";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+	function hello(str) {
+	    console.log('str', str);
+	}
+
+	hello('Hello world!');
+
+/***/ })
+/******/ ]);"></script>
+</head>
+<body>
+	
+	<!-- 循环判断引入非初始化的其他js -->
+	
+		
+	
+		
+			<script type="text/javascript" src="http://cdn.com/js/c-b48ac2761d1f28eec8e0.js"></script>
+		
+	
+</body>
+</html>

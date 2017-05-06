@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- 默认entry带 publicPath地址 htmlWebpackPlugin.files.chunks.main.entry -->
+    <%= htmlWebpackPlugin.files.chunks.main.entry %>
+    <!--   嵌入部分初始化的js代码,要去除publicPath地址 htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length) -->
+    <%= htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length) %>
+	
+	<!-- js嵌入html需要用到webpack的内部方法compilation.asserts['去除publicPath的js路径'].source() -->
+    <script type="text/javascript" src="<%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>"></script>
+</head>
+<body>
+	
+	<!-- 循环判断引入非初始化的其他js -->
+	<% for (var key in htmlWebpackPlugin.files.chunks) { %>
+		<% if(key !== 'main') { %>
+			<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"></script>
+		<% } %>
+	<% } %>
+</body>
+</html>
