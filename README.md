@@ -1,7 +1,7 @@
 # webpack-learning
 
 webpack 学习记录
-
+---
 1.webpack基本配置
   @1:output:{path:'./dist/js', filename:'bundle.js'};
   但是在@2下运行，会报错'./dist/js'不是绝对路径的错误，在@下要配置为:
