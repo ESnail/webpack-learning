@@ -1,0 +1,17 @@
+@import './flex.css';
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: skyblue;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.img {
+	margin: 10px auto;
+	text-align: center;
+}
+

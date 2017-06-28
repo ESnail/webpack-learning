@@ -1,7 +1,7 @@
 # webpack-learning
 
 多入口、单模板生成多页面
-    1.entry：{}   多个key-value 即多个chunk
+    1.entry：{}   多个key-value 即多个chun
     2.plugins:[]  多个htmlWebpackPlugin配置
     3.需要打开inject:'body',自动生成js, 而不是在index.html中指定
     4.配置如下：chunks 、excludeChunks使用一个即可
